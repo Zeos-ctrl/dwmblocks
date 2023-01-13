@@ -1,0 +1,30 @@
+#!/bin/sh
+
+# Prints the current volume or 🔇 if muted.
+
+case $BUTTON in
+	1) setsid -f st -e pulsemixer ;;
+	3) st -e nvim /home/zeos/.config/dwmblocks/scripts/sb_volume ;;
+esac
+
+vol="$(pactl list sinks | grep '^[[:space:]]Volume:' | \
+    head -n $(( $SINK + 2 )) | tail -n 1 | sed -e 's,.* \([0-9][0-9]*\)%.*,\1,')"
+
+vol="${vol#Volume: }"
+split() {
+	# For ommiting the . without calling and external program.
+	IFS=$2
+	set -- $1
+	printf '%s' "$@"
+}
+vol="$(split "$vol" ".")"
+vol="${vol##0}"
+
+case 1 in
+	$((vol >= 70)) ) icon="🔊" ;;
+	$((vol >= 30)) ) icon="🔉" ;;
+	$((vol >= 1)) ) icon="🔈" ;;
+	* ) echo 🔇 && exit ;;
+esac
+
+echo "$icon $vol%"
