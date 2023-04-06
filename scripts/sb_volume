@@ -4,7 +4,8 @@
 
 case $BUTTON in
 	1) setsid -f st -e pulsemixer ;;
-	3) st -e nvim /home/zeos/.config/dwmblocks/scripts/sb_volume ;;
+	3) st -e nvim /home/zeos/Github/dwmblocks/scripts/sb_volume ;;
+    4) st -e cmus;;
 esac
 
 vol="$(pactl list sinks | grep '^[[:space:]]Volume:' | \
@@ -21,10 +22,10 @@ vol="$(split "$vol" ".")"
 vol="${vol##0}"
 
 case 1 in
-	$((vol >= 70)) ) icon="🔊" ;;
-	$((vol >= 30)) ) icon="🔉" ;;
-	$((vol >= 1)) ) icon="🔈" ;;
-	* ) echo 🔇 && exit ;;
+	$((vol >= 70)) ) icon="墳" ;;
+	$((vol >= 30)) ) icon="奔" ;;
+	$((vol >= 1)) ) icon="奄" ;;
+	* ) echo 婢 && exit ;;
 esac
 
 echo "$icon $vol%"

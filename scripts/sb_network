@@ -2,7 +2,7 @@
 case $BUTTON in
 	1) st -e nmcli device wifi list ;;
 	2) st -e nmtui ;;
-	3) st -e nvim /home/zeos/.config/dwmblocks/scripts/sb_network ;;
+	3) st -e nvim /home/zeos/Github/dwmblocks/scripts/sb_network ;;
 esac
 
 if grep -xq 'up' /sys/class/net/w*/operstate 2>/dev/null ; then
