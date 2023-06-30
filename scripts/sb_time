@@ -2,7 +2,7 @@
 
 case $BUTTON in
 	1) st -e calcurse ;;
-	3) st -e nvim /home/zeos/Github/dwmblocks/scripts/sb_time ;;
+	3) st -e nvim /home/zeos/dwmblocks/scripts/sb_time ;;
 esac
 
 date '+%b %d (%a) %I:%M%p'

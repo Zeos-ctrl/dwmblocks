@@ -4,7 +4,7 @@
 
 case $BUTTON in
 	1) setsid -f st -e pulsemixer ;;
-	3) st -e nvim /home/zeos/Github/dwmblocks/scripts/sb_volume ;;
+	3) st -e nvim /home/zeos/dwmblocks/scripts/sb_volume ;;
     4) st -e cmus;;
 esac
 
